@@ -18,6 +18,7 @@ integer = IntVar()
 string = IntVar()
 float = IntVar()
 boolean = IntVar()
+API_KEY = "" #get a free api key at https://rapidapi.com/judge0-official/api/judge0-ce/
 
 def Base64_encode(element):
     element_bytes = element.encode('ascii')
@@ -72,7 +73,7 @@ def submit(language, source_code, stdin):
     headers = {
 	    "content-type": "application/json",
 	    "Content-Type": "application/json",
-	    "X-RapidAPI-Key": "148342c2dbmsh78fabf1f8c43e30p1b8744jsn5b888891ed1d",
+	    "X-RapidAPI-Key": API_KEY,
 	    "X-RapidAPI-Host": "judge0-ce.p.rapidapi.com"
     }
     response = requests.request("POST", url, json=payload, headers=headers)
@@ -85,7 +86,7 @@ def output(token):
     querystring = {"base64_encoded":"true","fields":"*"}
 
     headers = {
-	"X-RapidAPI-Key": "148342c2dbmsh78fabf1f8c43e30p1b8744jsn5b888891ed1d",
+	"X-RapidAPI-Key": API_KEY,
 	"X-RapidAPI-Host": "judge0-ce.p.rapidapi.com"
     }
 
